@@ -8,6 +8,8 @@ from consolidado import graficos_consolidados_separados # Importa la nueva funci
 from dispersionInteraccionesAlcance import grafico_dispersion # Importa la nueva función
 from analisislienal import analisis_lineal # Importa la nueva función
 from analisislinealvisitas import grafico_reales_vs_predichas # Importa la nueva función
+from alcanceinstagram import estadistica_descriptiva_alcance # Importa la nueva función
+from seguidoresinstagram import estadistica_descriptiva_seguidores
 
 # Crear la aplicación Dash
 app = dash.Dash(__name__)
@@ -21,6 +23,8 @@ figuras_consolidadas = graficos_consolidados_separados()
 fig_dispersion = grafico_dispersion()
 fig_analisis_lineal = analisis_lineal() 
 fig_reales_vs_predichas, fig_distribucion_residuos = grafico_reales_vs_predichas()
+fig_alcance1, fig_alcance2 = estadistica_descriptiva_alcance()
+fig_seguidores1, fig_seguidores2 = estadistica_descriptiva_seguidores()
 
 # Layout de la aplicación
 app.layout = html.Div([
@@ -28,10 +32,14 @@ app.layout = html.Div([
     
     dcc.Tabs([
         dcc.Tab(label='Estadísticas Generales', children=[
-            dcc.Graph(id='estadisticas-generales', figure=fig1)
+            dcc.Graph(id='estadisticas-generales', figure=fig1),
+            dcc.Graph(id='alcance-estadisticas', figure=fig_alcance1),
+            dcc.Graph(id='alcance-seguidores', figure=fig_seguidores1)
         ], style={'font-family': 'Arial', 'font-size': '16px'}),
-        dcc.Tab(label='Promedio Visitas por Mes', children=[
-            dcc.Graph(id='promedio-visitas-mes', figure=fig2)
+        dcc.Tab(label='Promedios por Mes', children=[
+            dcc.Graph(id='promedio-visitas-mes', figure=fig2),
+            dcc.Graph(id='alcance-promedio-mes', figure=fig_alcance2),
+            dcc.Graph(id='seguidores-promedio-mes', figure=fig_seguidores2)
         ], style={'font-family': 'Arial', 'font-size': '16px'}),
         dcc.Tab(label='Distribución por Rango de Edad y Género', children=[
             dcc.Graph(id='grafico-rango-edad-genero', figure=fig3)
@@ -53,9 +61,7 @@ app.layout = html.Div([
                 dcc.Graph(id='grafico-dispersion', figure=fig_dispersion) 
                 ], style={'font-family': 'Arial', 'font-size': '16px'}),
         dcc.Tab(label='Análisis Lineal', children=[ 
-                dcc.Graph(id='analisis-lineal', figure=fig_analisis_lineal), 
-                dcc.Graph(id='reales-vs-predichas', figure=fig_reales_vs_predichas), 
-                dcc.Graph(id='distribucion-residuos', figure=fig_distribucion_residuos) ], 
+                dcc.Graph(id='analisis-lineal', figure=fig_analisis_lineal)], 
                 style={'font-family': 'Arial', 'font-size': '16px'})
     ])
 ])

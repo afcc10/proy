@@ -16,11 +16,12 @@ def generar_graficas():
     media = df["Primary"].mean()
     desviacion = df["Primary"].std()
     valor_maximo = df["Primary"].max()
+    varianza = df["Primary"].var()
    
     # Crear un DataFrame para las estadísticas
     estadisticas_df = pd.DataFrame({
-        'Estadística': ['Cantidad de registros', 'Media', 'Desviación Estándar', 'Valor Máximo'],
-        'Valor': [cantidad, media, desviacion, valor_maximo]
+        'Estadística': ['Cantidad de registros', 'Media', 'Desviación Estándar', 'Valor Máximo','Varianza'],
+        'Valor': [cantidad, media, desviacion, valor_maximo,varianza]
     })
 
     # Agrupar por mes y calcular el promedio de visitas
@@ -33,7 +34,7 @@ def generar_graficas():
             go.Bar(
                 x=estadisticas_df['Estadística'],
                 y=estadisticas_df['Valor'],
-                marker=dict(color=['skyblue', 'lightgreen', 'salmon', 'green', 'blue']),
+                marker=dict(color=['skyblue', 'lightgreen', 'salmon', 'green', 'blue','red']),
                 text=estadisticas_df['Valor'],
                 textposition='outside'
             )
