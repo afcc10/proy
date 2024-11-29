@@ -15,7 +15,7 @@ def graficos_consolidados_separados():
     df_mensual = df.resample('M').sum()
 
     # Colores para las líneas de los gráficos
-    colores = ['skyblue', 'lightgreen', 'salmon', 'lightcoral', 'lightgrey', 'lightpink']
+    colores = ['skyblue', 'lightgreen', 'salmon', 'blue', 'red', 'black']
 
     # Crear un diccionario para almacenar las figuras de cada métrica
     figuras = {}
