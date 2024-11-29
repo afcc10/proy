@@ -6,7 +6,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 
 def modelo_regresion_lineal():
     # Leer el archivo CSV
-    df = pd.read_csv("C:/Users/USUARIO/Documents/proy/csv/consolidado_data.csv")
+    df = pd.read_csv("../proy/csv/consolidado_data.csv")
 
     # Convertir la columna 'Fecha' a datetime
     df['Fecha'] = pd.to_datetime(df['Fecha'], dayfirst=True)
