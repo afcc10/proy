@@ -3,7 +3,7 @@ import plotly.express as px
 
 def grafico_dispersion():
     # Leer el archivo CSV
-    df = pd.read_csv('C:/Users/USUARIO/Documents/proy/csv/consolidado_data.csv')
+    df = pd.read_csv('../proy/csv/consolidado_data.csv')
 
     # Crear el gráfico de dispersión comparando interacciones y alcance
     fig = px.scatter(df, x='interacciones', y='alcance', 

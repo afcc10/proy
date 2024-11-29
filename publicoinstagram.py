@@ -3,7 +3,7 @@ import plotly.graph_objects as go
 
 def grafico_rango_edad_genero():
     # Leer el archivo CSV
-    df = pd.read_csv("C:/Users/USUARIO/Documents/proy/csv/publico_instagram.csv")
+    df = pd.read_csv("../proy/csv/publico_instagram.csv")
 
     # Crear el gráfico de barras apiladas
     fig = go.Figure(data=[

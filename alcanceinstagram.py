@@ -3,7 +3,7 @@ import plotly.graph_objects as go
 
 def estadistica_descriptiva_alcance():
     # Leer el archivo CSV
-    df = pd.read_csv("C:/Users/USUARIO/Documents/proy/csv/consolidado_data.csv")
+    df = pd.read_csv("../proy/csv/consolidado_data.csv")
 
     # Convertir la columna 'alcance' a numérico si es necesario
     df["alcance"] = pd.to_numeric(df["alcance"], errors='coerce')

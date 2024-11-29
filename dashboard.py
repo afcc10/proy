@@ -6,10 +6,11 @@ from principales_paises import grafico_paises_instagram  # Importa la nueva func
 from principales_ciudades import grafico_ciudades_instagram
 from consolidado import graficos_consolidados_separados # Importa la nueva función
 from dispersionInteraccionesAlcance import grafico_dispersion # Importa la nueva función
-from analisislienal import analisis_lineal # Importa la nueva función
-from analisislinealvisitas import grafico_reales_vs_predichas # Importa la nueva función
+from analisislienal import analisis_regresion_lineal_multiple # Importa la nueva función
 from alcanceinstagram import estadistica_descriptiva_alcance # Importa la nueva función
 from seguidoresinstagram import estadistica_descriptiva_seguidores
+from analisiscorrelacion import analisis_correlacion # Importa la nueva función
+from analisislinealvisitas import regresion_lineal_visitas_seguidores
 
 # Crear la aplicación Dash
 app = dash.Dash(__name__)
@@ -21,10 +22,11 @@ fig4 = grafico_paises_instagram()
 fig5 = grafico_ciudades_instagram()
 figuras_consolidadas = graficos_consolidados_separados()
 fig_dispersion = grafico_dispersion()
-fig_analisis_lineal = analisis_lineal() 
-fig_reales_vs_predichas, fig_distribucion_residuos = grafico_reales_vs_predichas()
+fig_analisis_lineal = analisis_regresion_lineal_multiple() 
 fig_alcance1, fig_alcance2 = estadistica_descriptiva_alcance()
 fig_seguidores1, fig_seguidores2 = estadistica_descriptiva_seguidores()
+fig_correlacion = analisis_correlacion()
+fig_regresion = regresion_lineal_visitas_seguidores()
 
 # Layout de la aplicación
 app.layout = html.Div([
@@ -61,7 +63,11 @@ app.layout = html.Div([
                 dcc.Graph(id='grafico-dispersion', figure=fig_dispersion) 
                 ], style={'font-family': 'Arial', 'font-size': '16px'}),
         dcc.Tab(label='Análisis Lineal', children=[ 
-                dcc.Graph(id='analisis-lineal', figure=fig_analisis_lineal)], 
+                dcc.Graph(id='analisis-correlacion', figure=fig_correlacion),
+                dcc.Graph(id='regresion-lineal', figure=fig_analisis_lineal),
+                dcc.Graph(id='regresion-lineal_vis_seg', figure=fig_regresion)
+                #dcc.Graph(id='regresion-lineal-seguidores',figure=fig_regresion2)
+                ], 
                 style={'font-family': 'Arial', 'font-size': '16px'})
     ])
 ])

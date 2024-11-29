@@ -3,7 +3,7 @@ import plotly.graph_objects as go
 
 def grafico_paises_instagram():
     # Leer el archivo CSV
-    df = pd.read_csv('C:/Users/USUARIO/Documents/proy/csv/principales_paises_instagram.csv')
+    df = pd.read_csv('../proy/csv/principales_paises_instagram.csv')
 
     # Verificar que los datos se han leído correctamente
     #print(df.head())

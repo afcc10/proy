@@ -3,7 +3,7 @@ import plotly.graph_objects as go
 
 def generar_graficas():
     # Leer el archivo CSV
-    df = pd.read_csv("C:/Users/USUARIO/Documents/proy/csv/visitas_instagram.csv")
+    df = pd.read_csv("../proy/csv/visitas_instagram.csv")
 
     # Convertir la columna 'Primary' a numérico si es necesario
     df["Primary"] = pd.to_numeric(df["Primary"], errors='coerce')
